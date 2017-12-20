@@ -1,0 +1,43 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "author": "Anggi Priatmadi",
+  "main": "bin/server.js",
+  "scripts": {
+    "clean": "rm -rf public/dist; rm -rf server/bin",
+    "dev": "npm run clean && node node_modules/babel-cli/bin/babel-node server",
+    "build": "npm run clean && npm run build:client && npm run build:server",
+    "build:server": "NODE_ENV=production webpack --config webpack/server.prod.js --progress",
+    "build:client": "NODE_ENV=production webpack --config webpack/client.prod.js --progress",
+    "start": "npm run build && NODE_ENV=production node server/bin/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.2",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
