@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => (
   <div className="home">
-    Hello world this is da home!
+    Hello world this is da home! yo so fast
   </div>
 );
 
