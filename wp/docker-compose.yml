@@ -1,0 +1,31 @@
+version: '3'
+services:
+  wordpress:
+    image: visiblevc/wordpress:0.17.0-php7.1
+    ports:
+      - 8080:80
+      - 443:443
+    volumes:
+      - ./data:/data
+      - ./wp-content/themes/block-by-bit:/app/wp-content/themes/block-by-bit
+    environment:
+      DB_NAME: wordpress
+      DB_PASS: root
+      PLUGINS: >-
+        academic-bloggers-toolkit,
+        co-authors-plus,
+        [WP-API]https://github.com/WP-API/WP-API/archive/master.zip,
+  db:
+    image: mysql:5.7
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 22222:80
+volumes:
+  data:
