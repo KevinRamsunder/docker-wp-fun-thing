@@ -6,8 +6,8 @@ services:
       - 8080:80
       - 443:443
     volumes:
-      - ./data:/data
-      - ./wp-content/themes/block-by-bit:/app/wp-content/themes/block-by-bit
+      - ../wp/data:/data
+      - ../wp/wp-content/themes/block-by-bit:/app/wp-content/themes/block-by-bit
     environment:
       DB_NAME: wordpress
       DB_PASS: root
@@ -18,7 +18,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - data:/var/lib/mysql
+      - ../wp/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
   phpmyadmin:
