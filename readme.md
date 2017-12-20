@@ -1,4 +1,4 @@
-### Installation
+# Installation
 
 0. Install docker and start it
 
