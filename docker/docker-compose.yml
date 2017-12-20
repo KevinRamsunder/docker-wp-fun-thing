@@ -1,5 +1,13 @@
 version: '3'
 services:
+  app:
+    build: ../app
+    command: npm run dev
+    volumes:
+      - ../app/:/app/
+      - /app/node_modules/
+    ports:
+      - 3000:3000
   wordpress:
     image: visiblevc/wordpress:0.17.0-php7.1
     ports:
@@ -29,3 +37,4 @@ services:
       - 22222:80
 volumes:
   data:
+  app:
